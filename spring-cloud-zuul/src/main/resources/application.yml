@@ -1,0 +1,17 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://master:8084/eureka/,http://backup1:8082/eureka/,http://backup2:8083/eureka/
+server:
+  port: 8769
+spring:
+  application:
+    name: spring-cloud-zuul
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: app-user
+    api-b:
+      path: /api-b/**
+      serviceId: feign-consumer
